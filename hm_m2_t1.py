@@ -9,15 +9,37 @@ In: 400
 Out: 4
 '''
 
-# n = input('Введите натуральное число: ').split(' ')
+# n = input('Введите натуральное число: ')
 # попытка №1
-# if len(n) == 2:
-#     n[0] = len(n) - 1
-#     n[1] = len(n)
-#     result = n[0]+n[1]
-#     print(n[0], n[1])
-#     print(result)
-#print(n)
+if len(n) == 2:
+    print('summa =', int(n[0]) + int(n[1]))
+elif len(n) == 3:
+    if not n[0]:
+        n[0] = 1
+    if not n[1]:
+        n[1] = 1
+    if not n[2]:
+        n[2] = 1
+    print(int(n[0]) * int(n[1]) * int(n[2]))
+else:
+    print('wrong number')
+# еще вариант
+# val = int(input('Введите натуральное число\n>'))
+# numbers = len(str(val))
+
+# if numbers == 2:
+#     print(val % 100 // 10 + val % 10)
+# elif numbers == 3:
+#     hundreds = val // 100
+#     tens = val % 100 // 10
+#     ones = val % 10
+#     if not tens:
+#         tens = 1
+#     if not ones:
+#         ones = 1
+#     print(hundreds * tens * ones)
+# else:
+#     print("Неподходящее число")
 
 # попытка №2
 # if len(n) == 2:
@@ -42,7 +64,7 @@ Out: 'Python Hello'
 # a = s.split()
 # b = a[::-1]
 # ' '.join(b)
-# print(b)
+# print(*b)#звездочка раскрывает список
 
 # №2
 # s = ' '.join(input('Введите строку из двух слов: ').split(' ')[::-1])
@@ -71,6 +93,21 @@ Out: 5
     #         print(a)
     # pass
 
+# просмотри такое решение
+my_string = input("Введите строку из несколькиих слов (не более  10): ")
+my_string += ' ' # Чтобы обработать последнее слово, добавляем пробел к строке
+max_len = index = word_len = 0
+
+while index < len(my_string):
+    if my_string[index] != " ":
+        word_len += 1
+    else:
+        if word_len > max_len:
+            max_len = word_len
+        word_len = 0
+    index += 1
+
+print(f"Самое длинное слово содержит {max_len} букв.")
 
 
 """
